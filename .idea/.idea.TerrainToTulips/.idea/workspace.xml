@@ -23,10 +23,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TerrainToTulips/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TerrainToTulips/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TerrainToTulips/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TerrainToTulips/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TTT/Scenes/TestScene_City.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scenes/TestScene_City.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/LSystemGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scripts/City/LSystemGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/Rule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/Rule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/Rule1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/Rule1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/SimpleVisualizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scripts/City/SimpleVisualizer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/HouseType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/HouseType.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/StructureHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scripts/City/StructureHelper.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +55,8 @@
         <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/RoadHelper.cs" />
         <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/Visualizer.cs" />
         <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/PlacementHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/HouseType.cs" />
+        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/BuildingType.cs" />
         <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/StructureHelper.cs" />
       </list>
     </option>
@@ -101,7 +102,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604791938124</updated>
-      <workItem from="1604791939013" duration="14080000" />
+      <workItem from="1604791939013" duration="17664000" />
     </task>
     <servers />
   </component>
