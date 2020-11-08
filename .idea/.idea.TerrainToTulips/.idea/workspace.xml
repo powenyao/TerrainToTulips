@@ -20,7 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9768838-f216-4a5a-8f75-fcc33fe73b1a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TerrainToTulips/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TerrainToTulips/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TerrainToTulips/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TerrainToTulips/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TTT/Scenes/TestScene_City.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scenes/TestScene_City.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/LSystemGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scripts/City/LSystemGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/Rule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/Rule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/Rule1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/Rule1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TTT/Scripts/City/SimpleVisualizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TTT/Scripts/City/SimpleVisualizer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,17 +38,25 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/TTT/Scripts/City/SimpleVisualizer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TTT/Scripts/City/StructureHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TTT/Scripts/City/Parameters.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TTT/Scripts/City/RoadHelper.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/LSystemGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/LSystemGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/Rule.cs" />
         <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/Parameters.cs" />
         <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/SimpleVisulizer.cs" />
         <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/SimpleVisuliser.cs" />
+        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/Rules/Rule.cs" />
+        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/LSystemGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/SimpleVisualizer.cs" />
+        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/Direction.cs" />
+        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/RoadHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/Visualizer.cs" />
+        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/PlacementHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/TTT/Scripts/City/StructureHelper.cs" />
       </list>
     </option>
   </component>
@@ -53,6 +67,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -86,7 +101,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604791938124</updated>
-      <workItem from="1604791939013" duration="4582000" />
+      <workItem from="1604791939013" duration="14080000" />
     </task>
     <servers />
   </component>
@@ -110,6 +125,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2070" y="992" key="RiderGenerateDialog" timestamp="1604807053059">
+      <screen x="0" y="23" width="3008" height="1669" />
+    </state>
+    <state x="2070" y="992" key="RiderGenerateDialog/0.23.3008.1669@0.23.3008.1669" timestamp="1604807053059" />
     <state x="1919" y="1013" width="672" height="678" key="search.everywhere.popup" timestamp="1604792599568">
       <screen x="0" y="23" width="3008" height="1669" />
     </state>

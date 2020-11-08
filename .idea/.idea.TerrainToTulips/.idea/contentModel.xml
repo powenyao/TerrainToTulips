@@ -13,12 +13,18 @@
           </e>
           <e p="Scripts" t="Include">
             <e p="City" t="Include">
+              <e p="Direction.cs" t="Include" />
+              <e p="HouseType.cs" t="Include" />
               <e p="LSystemGenerator.cs" t="Include" />
               <e p="Parameters.cs" t="Include" />
+              <e p="PlacementHelper.cs" t="Include" />
+              <e p="RoadHelper.cs" t="Include" />
               <e p="Rules" t="Include">
                 <e p="Rule.cs" t="Include" />
               </e>
               <e p="SimpleVisualizer.cs" t="Include" />
+              <e p="StructureHelper.cs" t="Include" />
+              <e p="Visualizer.cs" t="Include" />
             </e>
             <e p="Noise.cs" t="Include" />
             <e p="Terrain" t="Include">

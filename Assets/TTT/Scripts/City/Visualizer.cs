@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using TTT.Scripts.City;
 using UnityEngine;
 
 namespace TTT.Scripts.City
 {
-    
-    public class SimpleVisualizer : MonoBehaviour
-    {
-        public LSystemGenerator lsystem;
+    public class Visualizer : MonoBehaviour
+{
+    public LSystemGenerator lsystem;
         List<Vector3> positions = new List<Vector3>();
-        public GameObject prefab;
-        public Material lineMaterial;
-        private int length = 9;
+        private int length = 20;
         private float angle = 90;
-
+        public RoadHelper roadHelper;
+        public StructureHelper structureHelper;
         public int Length
         {
             get {
@@ -45,15 +41,13 @@ namespace TTT.Scripts.City
             positions.Add(currentPosition);
             foreach (char letter in sequence)
             {
-                EncodingLetters encoding = (EncodingLetters) letter;
+                SimpleVisualizer.EncodingLetters encoding = (SimpleVisualizer.EncodingLetters) letter;
                 switch (encoding)
                 {
-                    case EncodingLetters.unknown:
-                        
-                    case EncodingLetters.save:
+                    case SimpleVisualizer.EncodingLetters.save:
                         savePoints.Push(new Parameters{position = currentPosition, direction = direction, length = Length});
                         break;
-                    case EncodingLetters.load:
+                    case SimpleVisualizer.EncodingLetters.load:
                         if (savePoints.Count > 0)
                         {
                             Parameters parameters = savePoints.Pop();
@@ -66,52 +60,26 @@ namespace TTT.Scripts.City
                             throw new System.Exception("Don't have saved point in our stack");
                         }
                         break;
-                    case EncodingLetters.draw:
+                    case SimpleVisualizer.EncodingLetters.draw:
                         tempPostion = currentPosition;
                         currentPosition += direction * length;
-                        DrawLine(tempPostion, currentPosition, Color.red);
+                        roadHelper.PlaceStreetPositions(tempPostion, Vector3Int.RoundToInt(direction), length);
                         Length -= 2;
                         positions.Add(currentPosition);
                         break;
-                    case EncodingLetters.turnRight:
+                    case SimpleVisualizer.EncodingLetters.turnRight:
                         direction = Quaternion.AngleAxis(angle, Vector3.up) * direction; 
                         break;
-                    case EncodingLetters.turnLeft:
+                    case SimpleVisualizer.EncodingLetters.turnLeft:
                         direction = Quaternion.AngleAxis(-angle, Vector3.up) * direction; 
                         break;
                     default:
                         break;
                 }
             }
-
-            foreach (Vector3 position in positions)
-            {
-                Instantiate(prefab, position, Quaternion.identity);
-            }
+            roadHelper.FixRoad();
+            structureHelper.PlaceStructuresAroundRoad(roadHelper.GetRoadPositions());
         }
-
-        private void DrawLine(Vector3 start, Vector3 end, Color color)
-        {
-            GameObject line = new GameObject("line");
-            line.transform.position = start;
-            LineRenderer lineRenderer = line.AddComponent<LineRenderer>();
-            lineRenderer.material = lineMaterial;
-            lineRenderer.startColor = color;
-            lineRenderer.startWidth = 0.1f;
-            lineRenderer.endWidth = 0.1f;
-            lineRenderer.SetPosition(0, start);
-            lineRenderer.SetPosition(1, end);
-        }
-
-        public enum EncodingLetters
-        {
-            unknown = '1',
-            save = '[',
-            load= ']',
-            draw = 'F',
-            turnRight ='+',
-            turnLeft = '-'
-        }
-    }
+}
 
 }

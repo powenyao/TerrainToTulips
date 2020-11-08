@@ -15,9 +15,9 @@ namespace TTT.Scripts.City
         public string rootSentence;
         [Range(0,10)]
         public int iterationLimit = 1;
-        private void Start(){
-            Debug.Log(GenerateSententce());
-        }
+
+        public bool randomIgnoreModifier = true;
+        [Range(0, 1)] public float changeToIgnoreRule = 0.3f;
         public string GenerateSententce(string word = null)
         {
             if (word == null)
@@ -42,6 +42,13 @@ namespace TTT.Scripts.City
                 {
                     if (rule.letter == c.ToString())
                     {
+                        if (randomIgnoreModifier && iteration > 1)
+                        {
+                            if (Random.value < changeToIgnoreRule)
+                            {
+                                break;
+                            }
+                        }
                         newWord.Append(Recurse(rule.GetResult(), iteration + 1));
                     }
                 }
