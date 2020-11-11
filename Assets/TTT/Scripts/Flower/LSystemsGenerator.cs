@@ -52,7 +52,7 @@ public class LSystemsGenerator : MonoBehaviour
 
         rules = new Dictionary<char, string>
         {
-            { 'X', "[F-[[X]+X]+F[+FX]-X]" },
+            { 'X', "[F[-X+F[+FX]][*-X+F[+FX]][/-X+F[+FX]-X]]" },
             { 'F', "FF" }
         };
 
