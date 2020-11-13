@@ -10,7 +10,7 @@ public class LSystemsGenerator : MonoBehaviour
     public static int MAX_ITERATIONS = 7;
 
     public int title = 1;
-    public int iterations = 4;
+    public int iterations = 5;
     public float angle = 30f;
     public float width = 1f;
     public float length = 2f;
@@ -37,6 +37,8 @@ public class LSystemsGenerator : MonoBehaviour
     
     private void Start()
     {
+        angle = UnityEngine.Random.Range(20f, 40f);
+
         titleLastFrame = title;
         iterationsLastFrame = iterations;
         angleLastFrame = angle;
@@ -50,14 +52,30 @@ public class LSystemsGenerator : MonoBehaviour
 
         transformStack = new Stack<TransformInfo>();
 
+        int randInt = UnityEngine.Random.Range(0, 2);
+        String rulesStr = "[F[-X+F[+FX]][*-X+F[+FX]][/-X+F[+FX]-X]]";
+        if (randInt == 0)
+        {
+            rulesStr = "[F[-X+F[+FX]][*-X+F[+FX]][/-X+F[+FX]-X]]";
+        }
+        else if (randInt == 1)
+        {
+            rulesStr = "[F[+FX][*+FX][/+FX]]";
+        }
+        else if (randInt == 2)
+        {
+            rulesStr = "[*+FX]X[+FX][/+F-FX]";
+        }
         rules = new Dictionary<char, string>
         {
-            { 'X', "[F[-X+F[+FX]][*-X+F[+FX]][/-X+F[+FX]-X]]" },
+            { 'X', rulesStr },
             { 'F', "FF" }
         };
 
         Generate();
     }
+
+
 
     private void Update()
     {
@@ -71,103 +89,7 @@ public class LSystemsGenerator : MonoBehaviour
         }
     }
 
-    /*
-    private void Update()
-    {
-        if (HUD.hasGenerateBeenPressed || Input.GetKeyDown(KeyCode.G))
-        {
-            ResetRandomValues();
-            HUD.hasGenerateBeenPressed = false;
-            Generate();
-        }
-
-        if (HUD.hasResetBeenPressed || Input.GetKeyDown(KeyCode.R))
-        {
-            ResetTreeValues();
-            HUD.hasResetBeenPressed = false;
-            HUD.Start();
-            Generate();
-        }
-
-        if (titleLastFrame != title)
-        {
-            if (title >= 6)
-            {
-                HUD.rotation.gameObject.SetActive(true);
-            }
-            else
-            {
-                HUD.rotation.value = 0;
-                HUD.rotation.gameObject.SetActive(false);
-            }
-
-            switch (title)
-            {
-                case 1:
-                    SelectTreeOne();
-                    break;
-
-                case 2:
-                    SelectTreeTwo();
-                    break;
-
-                case 3:
-                    SelectTreeThree();
-                    break;
-
-                case 4:
-                    SelectTreeFour();
-                    break;
-
-                case 5:
-                    SelectTreeFive();
-                    break;
-
-                case 6:
-                    SelectTreeSix();
-                    break;
-
-                case 7:
-                    SelectTreeSeven();
-                    break;
-
-                case 8:
-                    SelectTreeEight();
-                    break;
-
-                default:
-                    SelectTreeOne();
-                    break;
-            }
-
-            titleLastFrame = title;
-        }
-
-        if (iterationsLastFrame != iterations)
-        {
-            if (iterations >= 6)
-            {
-                HUD.warning.gameObject.SetActive(true);
-                StopCoroutine("TextFade");
-                StartCoroutine("TextFade");
-            }
-            else
-            {
-                HUD.warning.gameObject.SetActive(false);
-            }
-        }
-
-        if (iterationsLastFrame != iterations ||
-                angleLastFrame  != angle ||
-                widthLastFrame  != width ||
-                lengthLastFrame != length)
-        {
-            ResetFlags();
-            Generate();
-        }
-
-    }
-    */
+   
 
     private void Generate()
     {
@@ -246,98 +168,9 @@ public class LSystemsGenerator : MonoBehaviour
             }
         }
 
-        Tree.transform.rotation = Quaternion.Euler(0, 0, 0);
+        int randRotate = UnityEngine.Random.Range(0, 359);
+        Tree.transform.rotation = Quaternion.Euler(0, randRotate, 0);
     }
-
-    /*
-    private void SelectTreeOne()
-    {
-        rules = new Dictionary<char, string>
-        {
-            { 'X', "[F-[X+X]+F[+FX]-X]" },
-            { 'F', "FF" }
-        };
-
-        Generate();
-    }
-
-    private void SelectTreeTwo()
-    {
-        rules = new Dictionary<char, string>
-        {
-            { 'X', "[-FX][+FX][FX]" },
-            { 'F', "FF" }
-        };
-
-        Generate();
-    }
-
-    private void SelectTreeThree()
-    {
-        rules = new Dictionary<char, string>
-        {
-            { 'X', "[-FX]X[+FX][+F-FX]" },
-            { 'F', "FF" }
-        };
-
-        Generate();
-    }
-
-    private void SelectTreeFour()
-    {
-        rules = new Dictionary<char, string>
-        {
-            { 'X', "[FF[+XF-F+FX]--F+F-FX]" },
-            { 'F', "FF" }
-        };
-
-        Generate();
-    }
-
-    private void SelectTreeFive()
-    {
-        rules = new Dictionary<char, string>
-        {
-            { 'X', "[FX[+F[-FX]FX][-F-FXFX]]" },
-            { 'F', "FF" }
-        };
-
-        Generate();
-    }
-
-    private void SelectTreeSix()
-    {
-        rules = new Dictionary<char, string>
-        {
-            { 'X', "[F[+FX][*+FX][/+FX]]" },
-            { 'F', "FF" }
-        };
-
-        Generate();
-    }
-
-    private void SelectTreeSeven()
-    {
-        rules = new Dictionary<char, string>
-        {
-            { 'X', "[*+FX]X[+FX][/+F-FX]" },
-            { 'F', "FF" }
-        };
-
-        Generate();
-    }
-
-    private void SelectTreeEight()
-    {
-        rules = new Dictionary<char, string>
-        {
-            { 'X', "[F[-X+F[+FX]][*-X+F[+FX]][/-X+F[+FX]-X]]" },
-            { 'F', "FF" }
-        };
-
-        Generate();
-    }
-    */
 
     private void ResetRandomValues()
     {
@@ -363,34 +196,4 @@ public class LSystemsGenerator : MonoBehaviour
         length = 2f;
         variance = 10f;
     }
-
-    /*
-    IEnumerator TextFade()
-    {
-        Color c = HUD.warning.color;
-
-        float TOTAL_TIME = 4f;
-        float FADE_DURATION = .25f;
-
-        for (float timer = 0f; timer <= TOTAL_TIME; timer += Time.deltaTime)
-        {
-            if (timer > TOTAL_TIME - FADE_DURATION)
-            {
-                c.a = (TOTAL_TIME - timer) / FADE_DURATION;
-            }
-            else if (timer > FADE_DURATION)
-            {
-                c.a = 1f;
-            }
-            else
-            {
-                c.a = timer / FADE_DURATION;
-            }
-
-            HUD.warning.color = c;
-
-            yield return null;
-        }
-    }
-    */
 }
