@@ -30,11 +30,11 @@ namespace TTT.Scripts.City
             string sequence = lsystem.GenerateSententce();
             VisualizeSequence(sequence);
         }
-
+        public Vector3 currentPosition = Vector3.zero;
         private void VisualizeSequence(string sequence)
         {
             Stack<Parameters> savePoints = new Stack<Parameters>();
-            Vector3 currentPosition = Vector3.zero;
+            
             Vector3 direction = Vector3.forward; // z axis
             Vector3 tempPostion = Vector3.zero;
 
