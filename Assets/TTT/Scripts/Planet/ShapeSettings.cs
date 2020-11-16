@@ -15,4 +15,11 @@ public class ShapeSettings : ScriptableObject
         public bool useFirstLayerAsMask;
         public NoiseSettings noiseSettings;
     }
+
+    public void CopyShapeSettings(ShapeSettings newSetting)
+    {
+        this.planetRadius = newSetting.planetRadius;
+        //this.noiseLayers = newSetting.noiseLayers;
+        
+    }
 }
