@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/TTT/Scenes/TestScene_Planet.unity
+    guid: 65ef0cb399430214a881ae3e40221787
+  - enabled: 1
+    path: Assets/TTT/Scenes/TestScene_City.unity
+    guid: 5037a716db207c44eb69f1b61dcee2d3
   m_configObjects: {}
