@@ -61,8 +61,8 @@ namespace TTT.Scripts.City
                             }
 
                         }
-                        var building = SpawnPrefab(buildingTypes[i].GetPrefab(), freeSpot.Key, rotation);
-                        structureDisctionary.Add(freeSpot.Key, building);
+                        //var building = SpawnPrefab(buildingTypes[i].GetPrefab(), freeSpot.Key, rotation);
+                        //structureDisctionary.Add(freeSpot.Key, building);
                         break;
                     }
 
