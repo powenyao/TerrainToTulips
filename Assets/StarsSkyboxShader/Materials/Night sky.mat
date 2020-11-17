@@ -98,6 +98,6 @@ Material:
     - _NoiseMaskParams2: {r: 0.08747184, g: -0.018151425, b: 0.51, a: 2.49}
     - _NoiseParams: {r: 0.75, g: 6, b: 0.795, a: 2.08}
     - _SkyColor: {r: 0, g: 0.07242849, b: 0.13207549, a: 1}
-    - _SkyFogColor: {r: 0.6698113, g: 0.19549166, b: 0.054764405, a: 1}
+    - _SkyFogColor: {r: 0.9247191, g: 0.32704395, b: 1, a: 1}
     - _StarSizeRange: {r: 0.6820977, g: 0.80299664, b: 0, a: 0}
   m_BuildTextureStacks: []

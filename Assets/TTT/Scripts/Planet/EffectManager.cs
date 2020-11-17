@@ -16,9 +16,11 @@ public class EffectManager : MonoBehaviour
     public ColorSettings Color_EarthCurrent;
 
     public CinemachineVirtualCamera vc;
-    
+
+    public bool transitionToNextScene = true;
     private float timeElapsed = 0;
     public float lerpDuration = 1;
+    public float waitAfterLerp = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -78,16 +80,18 @@ public class EffectManager : MonoBehaviour
                         Shape_Earth.noiseLayers[i].noiseSettings.rigidNoiseSettings.weightMultiplier, t);
                 }
             }
+
             Earth.OnShapeSettingsUpdated();
-            
             timeElapsed += Time.deltaTime;
         }
         else
         {
-            Shape_EarthCurrent.planetRadius = Shape_Earth.planetRadius;
-
-            SceneManager.LoadScene("TestScene_City");
+            //Shape_EarthCurrent.planetRadius = Shape_Earth.planetRadius;
+            timeElapsed += Time.deltaTime;
+            if (transitionToNextScene && timeElapsed > lerpDuration+waitAfterLerp)
+            {
+                SceneManager.LoadScene("TestScene_City");
+            }
         }
     }
-    
 }
