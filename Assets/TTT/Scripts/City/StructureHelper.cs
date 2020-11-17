@@ -17,6 +17,8 @@ namespace TTT.Scripts.City
         public Dictionary<Vector3Int, GameObject> structureDisctionary = new Dictionary<Vector3Int, GameObject>();
         public Dictionary<Vector3Int, GameObject> natureDictionary = new Dictionary<Vector3Int, GameObject>();
         public int seedValue = 9;
+        public int natureQuantity = 40;
+        private int naturePlaced = 0;
         public IEnumerator PlaceStructuresAroundRoad(List<Vector3Int> roadPositions)
         {    
             Dictionary<Vector3Int, Direction> freeEstateSpots = FindSpacesAroundRoad(roadPositions);
@@ -48,7 +50,7 @@ namespace TTT.Scripts.City
                 {
                     if (buildingTypes[i].quantity == -1) // place infinitely many 
                     {
-                        if (randomNaturePlacement)
+                        if (randomNaturePlacement && naturePlaced < natureQuantity)
                         {
                             float random = UnityEngine.Random.value;
                             if (random < randomNaturePlacementTreshold)
@@ -56,6 +58,7 @@ namespace TTT.Scripts.City
                                 GameObject nature =
                                     SpawnPrefab(naturePrefabs[UnityEngine.Random.Range(0, naturePrefabs.Length)],
                                         freeSpot.Key, rotation);
+                                naturePlaced += 1;
                                 natureDictionary.Add(freeSpot.Key, nature);
                                 break;
                             }
