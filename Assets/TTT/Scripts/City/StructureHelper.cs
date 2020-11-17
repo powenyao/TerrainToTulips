@@ -17,7 +17,7 @@ namespace TTT.Scripts.City
         public Dictionary<Vector3Int, GameObject> structureDisctionary = new Dictionary<Vector3Int, GameObject>();
         public Dictionary<Vector3Int, GameObject> natureDictionary = new Dictionary<Vector3Int, GameObject>();
 
-        public void PlaceStructuresAroundRoad(List<Vector3Int> roadPositions)
+        public IEnumerator PlaceStructuresAroundRoad(List<Vector3Int> roadPositions)
         {    
             Dictionary<Vector3Int, Direction> freeEstateSpots = FindSpacesAroundRoad(roadPositions);
             List<Vector3Int> blockedPositions = new List<Vector3Int>();
@@ -95,6 +95,7 @@ namespace TTT.Scripts.City
                         break;
                     }
                 }
+                yield return new WaitForSeconds(0.01f);
             }
         }
 

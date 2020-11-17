@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 
 namespace TTT.Scripts.City
 {
     public class RoadHelper : MonoBehaviour
     {
+        public Action finishedCoroutine;
         public GameObject roadStraight, roadCorner, road3way, road4way, roadEnd;
         Dictionary<Vector3Int, GameObject> roadDictionary = new Dictionary<Vector3Int, GameObject>();
         HashSet<Vector3Int> fixRoadCandidates = new HashSet<Vector3Int>();
@@ -15,7 +17,7 @@ namespace TTT.Scripts.City
         {
             return roadDictionary.Keys.ToList();
         }
-        public void PlaceStreetPositions(Vector3 startPosition, Vector3Int direction, int length)
+        public IEnumerator PlaceStreetPositions(Vector3 startPosition, Vector3Int direction, int length)
         {
             Quaternion rotation = Quaternion.identity;
             if (direction.x == 0)
@@ -36,8 +38,9 @@ namespace TTT.Scripts.City
                 {
                     fixRoadCandidates.Add(position);
                 }
+                yield return new WaitForSeconds(0.01f);
             }
-
+            finishedCoroutine?.Invoke();
         }
 
         public void FixRoad()

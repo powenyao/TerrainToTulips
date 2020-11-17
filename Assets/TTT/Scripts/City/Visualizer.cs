@@ -8,10 +8,11 @@ namespace TTT.Scripts.City
 {
     public LSystemGenerator lsystem;
         List<Vector3> positions = new List<Vector3>();
-        private int length = 20;
+        private int length = 10;
         private float angle = 90;
         public RoadHelper roadHelper;
         public StructureHelper structureHelper;
+        private bool waitingForTheRoad = false;
         public int Length
         {
             get {
@@ -27,11 +28,13 @@ namespace TTT.Scripts.City
 
         private void Start()
         {
+            roadHelper.finishedCoroutine += () => waitingForTheRoad = false;
             string sequence = lsystem.GenerateSententce();
-            VisualizeSequence(sequence);
+            StartCoroutine(VisualizeSequence(sequence));
+            
         }
         public Vector3 currentPosition = Vector3.zero;
-        private void VisualizeSequence(string sequence)
+        private IEnumerator VisualizeSequence(string sequence)
         {
             Stack<Parameters> savePoints = new Stack<Parameters>();
             
@@ -41,6 +44,9 @@ namespace TTT.Scripts.City
             positions.Add(currentPosition);
             foreach (char letter in sequence)
             {
+                if (waitingForTheRoad){
+                    yield return new WaitForEndOfFrame();
+                }
                 SimpleVisualizer.EncodingLetters encoding = (SimpleVisualizer.EncodingLetters) letter;
                 switch (encoding)
                 {
@@ -63,9 +69,10 @@ namespace TTT.Scripts.City
                     case SimpleVisualizer.EncodingLetters.draw:
                         tempPostion = currentPosition;
                         currentPosition += direction * length;
-                        roadHelper.PlaceStreetPositions(tempPostion, Vector3Int.RoundToInt(direction), length);
-                        Length -= 2;
-                        positions.Add(currentPosition);
+                        StartCoroutine(roadHelper.PlaceStreetPositions(tempPostion, Vector3Int.RoundToInt(direction), length));
+                        waitingForTheRoad = true;
+                        yield return new WaitForEndOfFrame();
+                        // positions.Add(currentPosition);
                         break;
                     case SimpleVisualizer.EncodingLetters.turnRight:
                         direction = Quaternion.AngleAxis(angle, Vector3.up) * direction; 
@@ -77,8 +84,10 @@ namespace TTT.Scripts.City
                         break;
                 }
             }
+            yield return new WaitForSeconds(0.1f);
             roadHelper.FixRoad();
-            structureHelper.PlaceStructuresAroundRoad(roadHelper.GetRoadPositions());
+            yield return new WaitForSeconds(0.8f);
+            StartCoroutine(structureHelper.PlaceStructuresAroundRoad(roadHelper.GetRoadPositions()));
         }
 }
 
