@@ -112,7 +112,7 @@ public class LSystemsGenerator : MonoBehaviour
             sb = new StringBuilder();
         }
 
-        Debug.Log(currentString);
+        //Debug.Log(currentString);
         
         for (int i = 0; i < currentString.Length; i++)
         {

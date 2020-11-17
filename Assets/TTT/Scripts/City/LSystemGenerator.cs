@@ -15,11 +15,12 @@ namespace TTT.Scripts.City
         public string rootSentence;
         [Range(0,10)]
         public int iterationLimit = 1;
-
+        public int seedValue = 9;
         public bool randomIgnoreModifier = true;
         [Range(0, 1)] public float changeToIgnoreRule = 0.3f;
         public string GenerateSententce(string word = null)
         {
+            Random.seed = seedValue;
             if (word == null)
             {
                 word = rootSentence;

@@ -16,7 +16,7 @@ namespace TTT.Scripts.City
         public GameObject prefab;
         public Dictionary<Vector3Int, GameObject> structureDisctionary = new Dictionary<Vector3Int, GameObject>();
         public Dictionary<Vector3Int, GameObject> natureDictionary = new Dictionary<Vector3Int, GameObject>();
-
+        public int seedValue = 9;
         public IEnumerator PlaceStructuresAroundRoad(List<Vector3Int> roadPositions)
         {    
             Dictionary<Vector3Int, Direction> freeEstateSpots = FindSpacesAroundRoad(roadPositions);

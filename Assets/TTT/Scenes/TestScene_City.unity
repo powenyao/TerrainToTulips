@@ -480,11 +480,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3027264780412313618, guid: 1106169bb9787354a88f375642be9afd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 16
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3027264780412313618, guid: 1106169bb9787354a88f375642be9afd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 16
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3027264780412313618, guid: 1106169bb9787354a88f375642be9afd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -753,13 +753,13 @@ MonoBehaviour:
     roll: 0
   - position: {x: 16.638365, y: 33.856323, z: -49.666637}
     roll: 0
-  - position: {x: -2.343811, y: 27.013214, z: -37.100662}
+  - position: {x: -5.784584, y: 27.013214, z: -37.100662}
     roll: 0
-  - position: {x: -15.41967, y: 16.81335, z: -21.839817}
+  - position: {x: -14.032166, y: 19.070766, z: -25.749779}
     roll: 0
-  - position: {x: -19.201174, y: 12.188562, z: -13.91924}
+  - position: {x: -19.201174, y: 11.359522, z: -12.483299}
     roll: 0
-  - position: {x: -25, y: 5, z: 0}
+  - position: {x: -17.145683, y: 2.1554227, z: 4.92695}
     roll: 0
 --- !u!4 &2138847894
 Transform:
@@ -786,6 +786,18 @@ PrefabInstance:
       propertyPath: naturePrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 1041464923545490, guid: 5298dde917eb74beeb0bc8c713c73af8, type: 3}
+    - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
+      propertyPath: buildingTypes.Array.data[1].quantity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
+      propertyPath: buildingTypes.Array.data[2].quantity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
+      propertyPath: buildingTypes.Array.data[3].quantity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7447352273915268035, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
       propertyPath: m_Name
       value: StructureHelper
@@ -890,6 +902,10 @@ PrefabInstance:
     - target: {fileID: 8146867235555203182, guid: 64170585e16926c4b96adc223c2f0f1c, type: 3}
       propertyPath: m_Name
       value: LSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8146867235555203183, guid: 64170585e16926c4b96adc223c2f0f1c, type: 3}
+      propertyPath: iterationLimit
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64170585e16926c4b96adc223c2f0f1c, type: 3}
