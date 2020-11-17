@@ -12,8 +12,8 @@ public class LSystemsGenerator : MonoBehaviour
     public int title = 1;
     public int iterations = 5;
     public float angle = 30f;
-    public float width = 1f;
-    public float length = 2f;
+    public float width = 0.02f;
+    public float length = 0.03f;
     public float variance = 10f;
     public GameObject Tree = null;
 

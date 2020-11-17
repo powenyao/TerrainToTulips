@@ -769,6 +769,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
+      propertyPath: naturePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1041464923545490, guid: 5298dde917eb74beeb0bc8c713c73af8, type: 3}
     - target: {fileID: 7447352273915268035, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
       propertyPath: m_Name
       value: StructureHelper
