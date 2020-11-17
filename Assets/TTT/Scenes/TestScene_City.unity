@@ -201,8 +201,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40994989}
-  m_LocalRotation: {x: 0.25109637, y: -0.34123135, z: 0.09511621, w: 0.90081334}
-  m_LocalPosition: {x: 47.272705, y: 43.128284, z: -53.44385}
+  m_LocalRotation: {x: 0.30794096, y: -0.2674248, z: 0.09064133, w: 0.90853757}
+  m_LocalPosition: {x: 47.272705, y: 66.828285, z: -73.34386}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -684,7 +684,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579068505}
-  m_LocalRotation: {x: 0.25109637, y: -0.34123135, z: 0.09511621, w: 0.90081334}
+  m_LocalRotation: {x: 0.30794096, y: -0.2674248, z: 0.09064133, w: 0.90853757}
   m_LocalPosition: {x: 61.019836, y: -10.845093, z: -63.4876}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -769,7 +769,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138847892}
   m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: 0, y: 0, z: -28.3}
+  m_LocalPosition: {x: 0, y: 23.7, z: -48.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -788,15 +788,19 @@ PrefabInstance:
       objectReference: {fileID: 1041464923545490, guid: 5298dde917eb74beeb0bc8c713c73af8, type: 3}
     - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
       propertyPath: buildingTypes.Array.data[1].quantity
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
       propertyPath: buildingTypes.Array.data[2].quantity
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
       propertyPath: buildingTypes.Array.data[3].quantity
-      value: 10
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
+      propertyPath: buildingTypes.Array.data[4].quantity
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7447352273915268035, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
       propertyPath: m_Name
