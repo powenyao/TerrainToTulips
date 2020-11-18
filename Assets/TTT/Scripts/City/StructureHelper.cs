@@ -137,6 +137,9 @@ namespace TTT.Scripts.City
         }
         private GameObject SpawnPrefab(GameObject prefab, Vector3Int position, Quaternion rotation)
         {
+            if (prefab.name == "TreeSpawner"){
+                return Instantiate(prefab, position, rotation, transform);
+            }
             Building b = Building_Generator.Generate(settings, position);
             GameObject newBuilding = buildingGenerator.GetComponent<BuildingRenderer>().Render(b);
             // GameObject newBuilding = br.Render(b);
