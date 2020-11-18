@@ -711,6 +711,59 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1903540835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1903540837}
+  - component: {fileID: 1903540836}
+  m_Layer: 0
+  m_Name: BuildingGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1903540836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903540835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788775af0c67fc946a9eb9beb0c46cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorPrefab: {fileID: 400002, guid: 586c4c43d2727bd45a7ef177530c10f8, type: 3}
+  wallPrefab:
+  - {fileID: 400002, guid: 5bd7549d4ba97824eb10d08267faab67, type: 3}
+  - {fileID: 400002, guid: 60fe073f04fa8a341ac208dad7a1eba8, type: 3}
+  - {fileID: 400002, guid: 54548392cf60d534d87418c79e4e7ed3, type: 3}
+  roofPrefab:
+  - {fileID: 400002, guid: 3ac29a2820fd760489c1f74381389614, type: 3}
+  - {fileID: 400002, guid: 8a9c3ce2f8d1f1243b1d24a30042b9b3, type: 3}
+  - {fileID: 400002, guid: adf888a5fbb8d464194221d63f51fd13, type: 3}
+  - {fileID: 400002, guid: a818edceca6cf6a448b2474e1d64f0c2, type: 3}
+--- !u!4 &1903540837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903540835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138847892
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +835,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 400b3eba234714b4f882fda56dd09b93, type: 2}
+    - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
+      propertyPath: buildingGenerator
+      value: 
+      objectReference: {fileID: 1903540835}
     - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
       propertyPath: naturePrefabs.Array.data[0]
       value: 
