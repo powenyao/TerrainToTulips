@@ -201,8 +201,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40994989}
-  m_LocalRotation: {x: 0.30794096, y: -0.2674248, z: 0.09064133, w: 0.90853757}
-  m_LocalPosition: {x: 47.272705, y: 66.828285, z: -73.34386}
+  m_LocalRotation: {x: 0.2838581, y: -0.29326463, z: 0.09164914, w: 0.90830666}
+  m_LocalPosition: {x: 52.872704, y: 62.628284, z: -73.34386}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -684,7 +684,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579068505}
-  m_LocalRotation: {x: 0.30794096, y: -0.2674248, z: 0.09064133, w: 0.90853757}
+  m_LocalRotation: {x: 0.2838581, y: -0.29326463, z: 0.09164914, w: 0.90830666}
   m_LocalPosition: {x: 61.019836, y: -10.845093, z: -63.4876}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -806,13 +806,15 @@ MonoBehaviour:
     roll: 0
   - position: {x: 16.638365, y: 33.856323, z: -49.666637}
     roll: 0
-  - position: {x: -5.784584, y: 27.013214, z: -37.100662}
+  - position: {x: -5.784584, y: 25.239437, z: -38.12475}
     roll: 0
-  - position: {x: -14.032166, y: 19.070766, z: -25.749779}
+  - position: {x: -13.335786, y: 19.070763, z: -25.749779}
     roll: 0
-  - position: {x: -19.201174, y: 11.359522, z: -12.483299}
+  - position: {x: -16.034365, y: 11.3595085, z: -12.483299}
     roll: 0
-  - position: {x: -17.145683, y: 2.1554227, z: 4.92695}
+  - position: {x: -11.692394, y: -3.8041399, z: -3.2800813}
+    roll: 0
+  - position: {x: -2.3693514, y: -27.337387, z: 7.2259817}
     roll: 0
 --- !u!4 &2138847894
 Transform:
@@ -822,7 +824,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138847892}
   m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: 0, y: 23.7, z: -48.2}
+  m_LocalPosition: {x: 5.6, y: 19.5, z: -48.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -839,6 +841,10 @@ PrefabInstance:
       propertyPath: settings
       value: 
       objectReference: {fileID: 11400000, guid: 400b3eba234714b4f882fda56dd09b93, type: 2}
+    - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
+      propertyPath: seedValue
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7447352273915268034, guid: 8e842ae2a1d0fd9469d0eaab7b2538eb, type: 3}
       propertyPath: buildingGenerator
       value: 
