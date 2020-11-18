@@ -19,7 +19,7 @@ namespace TTT.Scripts.City
         public Dictionary<Vector3Int, GameObject> structureDisctionary = new Dictionary<Vector3Int, GameObject>();
         public Dictionary<Vector3Int, GameObject> natureDictionary = new Dictionary<Vector3Int, GameObject>();
         public int seedValue = 9;
-        public int natureQuantity = 40;
+        public int natureQuantity = 10;
         private int naturePlaced = 0;
         public IEnumerator PlaceStructuresAroundRoad(List<Vector3Int> roadPositions)
         {    

@@ -10,11 +10,12 @@ public class LSystemsGenerator : MonoBehaviour
     public static int MAX_ITERATIONS = 7;
 
     public int title = 1;
-    public int iterations = 5;
+    public int iterations = 4;
     public float angle = 30f;
     public float width = 0.02f;
-    public float length = 0.03f;
+    public float length = 0.04f;
     public float variance = 10f;
+    public float cooldownTime = 0.01f;
     public GameObject Tree = null;
 
     [SerializeField] private GameObject treeParent;
@@ -34,6 +35,8 @@ public class LSystemsGenerator : MonoBehaviour
     private string currentString = string.Empty;
     private Vector3 initialPosition = Vector3.zero;
     private float[] randomRotationValues = new float[100];
+    private List<GameObject> gameObjects;
+
     
     private void Start()
     {
@@ -56,7 +59,7 @@ public class LSystemsGenerator : MonoBehaviour
         String rulesStr = "[F[-X+F[+FX]][*-X+F[+FX]][/-X+F[+FX]-X]]";
         if (randInt == 0)
         {
-            rulesStr = "[F[-X+F[+FX]][*-X+F[+FX]][/-X+F[+FX]-X]]";
+            rulesStr = "[F[*-X+F[+FX]][+F-X]]";
         }
         else if (randInt == 1)
         {
@@ -72,7 +75,8 @@ public class LSystemsGenerator : MonoBehaviour
             { 'F', "FF" }
         };
 
-        Generate();
+        //Generate();
+        StartCoroutine(Generate());
     }
 
 
@@ -85,13 +89,14 @@ public class LSystemsGenerator : MonoBehaviour
                 lengthLastFrame != length)
         {
             ResetFlags();
-            Generate();
+            //Generate();
+            StartCoroutine(Generate());
         }
     }
 
    
 
-    private void Generate()
+    IEnumerator Generate()
     {
         Destroy(Tree);
 
@@ -114,20 +119,33 @@ public class LSystemsGenerator : MonoBehaviour
 
         //Debug.Log(currentString);
         
+        
         for (int i = 0; i < currentString.Length; i++)
         {
             switch (currentString[i])
             {
                 case 'F':                    
                     initialPosition = transform.position;
-                    transform.Translate(Vector3.up * 2 * length);                    
+                    transform.Translate(Vector3.up * 2 * length);
 
+                    /*
+                    float currTime = Time.time;
+                    float prevTime = currTime;
+                    while (currTime < prevTime + cooldownTime)
+                    {
+                        currTime = Time.time;
+                    }
+                    */
+             
                     GameObject fLine = currentString[(i + 1) % currentString.Length] == 'X' || currentString[(i + 3) % currentString.Length] == 'F' && currentString[(i + 4) % currentString.Length] == 'X' ? Instantiate(leaf) : Instantiate(branch);
                     fLine.transform.SetParent(Tree.transform);
                     fLine.GetComponent<LineRenderer>().SetPosition(0, initialPosition);
                     fLine.GetComponent<LineRenderer>().SetPosition(1, transform.position);
                     fLine.GetComponent<LineRenderer>().startWidth = width;
                     fLine.GetComponent<LineRenderer>().endWidth = width;
+                    yield return new WaitForSeconds(0.01f);
+                    //StartCoroutine(WaitFunction(i));
+
                     break;
 
                 case 'X':                
@@ -168,8 +186,12 @@ public class LSystemsGenerator : MonoBehaviour
             }
         }
 
+     
+
         int randRotate = UnityEngine.Random.Range(0, 359);
         Tree.transform.rotation = Quaternion.Euler(0, randRotate, 0);
+
+       
     }
 
     private void ResetRandomValues()
@@ -192,8 +214,19 @@ public class LSystemsGenerator : MonoBehaviour
     {
         iterations = 5;
         angle = 30f;
-        width = 1f;
-        length = 2f;
+        width = 0.02f;
+        length = 0.03f;
         variance = 10f;
+    }
+
+    IEnumerator WaitFunction(int i)
+    {
+        yield return new WaitForSeconds(0.01f);
+        GameObject fLine = currentString[(i + 1) % currentString.Length] == 'X' || currentString[(i + 3) % currentString.Length] == 'F' && currentString[(i + 4) % currentString.Length] == 'X' ? Instantiate(leaf) : Instantiate(branch);
+        fLine.transform.SetParent(Tree.transform);
+        fLine.GetComponent<LineRenderer>().SetPosition(0, initialPosition);
+        fLine.GetComponent<LineRenderer>().SetPosition(1, transform.position);
+        fLine.GetComponent<LineRenderer>().startWidth = width;
+        fLine.GetComponent<LineRenderer>().endWidth = width;
     }
 }
