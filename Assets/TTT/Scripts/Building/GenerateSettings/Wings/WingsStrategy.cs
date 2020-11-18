@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class WingsStrategy : ScriptableObject
 {
-    public abstract Wing[] GenerateWings(BuildingSettings settings);
+    public abstract Wing[] GenerateWings(BuildingSettings settings, Vector3Int position);
 }

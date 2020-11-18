@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe47e72949792a648aedca9100fcbc03, type: 3}
-  m_Name: SingleTower
+  m_Name: ForProject
   m_EditorClassIdentifier: 
   buildingSize: {x: 4, y: 4}
-  wingsStrategy: {fileID: 0}
+  wingsStrategy: {fileID: 11400000, guid: dd1c119b194256247b99d9660e8be2fb, type: 2}
   wingStrategy: {fileID: 0}
-  storiesStrategy: {fileID: 11400000, guid: 11714f888b1db4044a61c5a57e65fc8a, type: 2}
+  storiesStrategy: {fileID: 0}
   storyStrategy: {fileID: 0}
   wallStrategy: {fileID: 11400000, guid: 5a96272b0d194aa499d8db75bcf49669, type: 2}
   roofStrategy: {fileID: 11400000, guid: 18f8e3e8b0421814299084272f171dcc, type: 2}

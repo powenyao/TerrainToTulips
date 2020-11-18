@@ -9,7 +9,6 @@ public class WallWithWindowsAndDoor : WallStrategy
     {
         Wall[] walls =  new Wall[(bounds.size.x + bounds.size.y) * 2];
         int maxWindowCount = Mathf.FloorToInt(walls.Length * WindowWallRatio);
-        Debug.Log(maxWindowCount);
         int currentWindowCount = 0;
         for (int i = 0; i < walls.Length; i++){
             if (currentWindowCount < maxWindowCount && Random.Range(0f, 1f) < 0.5) {

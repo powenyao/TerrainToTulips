@@ -8,7 +8,7 @@ public class Building_Demo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Building b = Building_Generator.Generate(settings);
+        // Building b = Building_Generator.Generate(settings);
         // Building c = new Building(4,4, new Wing[] {
         //     new Wing(
         //         new RectInt(0,0,4,4),
@@ -18,7 +18,7 @@ public class Building_Demo : MonoBehaviour
         //         new Roof()
         //     )
         // });
-        GetComponent<BuildingRenderer>().Render(b);
+        // GetComponent<BuildingRenderer>().Render(b);
         // Debug.Log(b.ToString());
     }
 

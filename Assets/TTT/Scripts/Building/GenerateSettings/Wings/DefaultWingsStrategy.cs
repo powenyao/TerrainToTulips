@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DefaultWingsStrategy : WingsStrategy
 {
-    public override Wing[] GenerateWings(BuildingSettings settings) {
+    public override Wing[] GenerateWings(BuildingSettings settings, Vector3Int position) {
         return new Wing[]
          {
             settings.wingStrategy != null ?

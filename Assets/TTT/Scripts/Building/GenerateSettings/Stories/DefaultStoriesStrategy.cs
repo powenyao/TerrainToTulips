@@ -5,9 +5,13 @@ using UnityEngine;
 public class DefaultStoriesStrategy : StoriesStrategy
 {
     public override Story[] GenerateStories(BuildingSettings settings, RectInt bounds, int numberOfStories) {
-        return new Story[] { settings.storyStrategy != null ?
-            settings.storyStrategy.GenerateStory(settings, bounds, 0) :
-            ((StoryStrategy)ScriptableObject.CreateInstance<DefaultStoryStrategy>()).GenerateStory(settings, bounds, 0)
-        };
+        List<Story> storyList = new List<Story>();
+        for (int i = 0; i < numberOfStories; i++) {
+            storyList.Add(
+                settings.storyStrategy != null ?
+                settings.storyStrategy.GenerateStory(settings, bounds, i) :
+                ((StoryStrategy)ScriptableObject.CreateInstance<DefaultStoryStrategy>()).GenerateStory(settings, bounds, i));
+        }
+        return storyList.ToArray();
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Building Generation/Building Settings")]
 public class BuildingSettings : ScriptableObject
 {
-    public Vector2Int buildingSize;
+    public Vector2Int maxBuildingSize;
 
     //TODO: Add other grammar element strategies.
     public WingsStrategy wingsStrategy;
@@ -13,6 +13,6 @@ public class BuildingSettings : ScriptableObject
     public StoryStrategy storyStrategy;
     public WallStrategy wallStrategy;
     public RoofStrategy roofStrategy;
-    public Vector2Int Size {get {return buildingSize;} }
+    public Vector2Int Size {get {return maxBuildingSize;} }
 
 }

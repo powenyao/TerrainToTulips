@@ -4,13 +4,16 @@ using UnityEngine;
 
 public static class Building_Generator
 {
-    public static Building Generate(BuildingSettings settings){
+    public static Building Generate(BuildingSettings settings, Vector3Int position){
+        
+        int sizeX = Mathf.CeilToInt(settings.Size.x * Random.Range(0,1));
+        int sizeY = Mathf.CeilToInt(settings.Size.y * Random.Range(0,1));
         return new Building(
             settings.Size.x,
             settings.Size.y, 
             settings.wingsStrategy != null ?
-            settings.wingsStrategy.GenerateWings(settings) :
-            ((WingsStrategy)ScriptableObject.CreateInstance<DefaultWingsStrategy>()).GenerateWings(settings));
+            settings.wingsStrategy.GenerateWings(settings, position) :
+            ((WingsStrategy)ScriptableObject.CreateInstance<DefaultWingsStrategy>()).GenerateWings(settings, position));
     }
 
     // static Wing[] GenerateWings(BuildingSettings settings) {

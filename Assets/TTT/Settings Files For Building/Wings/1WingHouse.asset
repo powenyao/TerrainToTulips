@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188be89050ae11c47ae5cd7155c4e040, type: 3}
-  m_Name: HouseMax6FloorAndRandom
+  m_Script: {fileID: 11500000, guid: af0c5fd86801514438697a1e9236625c, type: 3}
+  m_Name: 1WingHouse
   m_EditorClassIdentifier: 
-  MaxFloor: 6
+  maxHeight: 20
   PerlinOrRandom: 1

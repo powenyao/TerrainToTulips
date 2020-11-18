@@ -14,6 +14,8 @@ namespace TTT.Scripts.City
         [Range(0,1)]
         public float randomNaturePlacementTreshold = 0.3f;
         public GameObject prefab;
+        public GameObject buildingGenerator; // for building generation
+        public BuildingSettings settings; // for building generation
         public Dictionary<Vector3Int, GameObject> structureDisctionary = new Dictionary<Vector3Int, GameObject>();
         public Dictionary<Vector3Int, GameObject> natureDictionary = new Dictionary<Vector3Int, GameObject>();
         public int seedValue = 9;
@@ -133,12 +135,18 @@ namespace TTT.Scripts.City
 
             return true;
         }
-
         private GameObject SpawnPrefab(GameObject prefab, Vector3Int position, Quaternion rotation)
         {
-            return Instantiate(prefab, position, rotation, transform);
-            // Building b = Building_Generator.Generate(settings);
-            // GameObject building = 
+            Building b = Building_Generator.Generate(settings, position);
+            GameObject newBuilding = buildingGenerator.GetComponent<BuildingRenderer>().Render(b);
+            // GameObject newBuilding = br.Render(b);
+            // Debug.Log(b.ToString());
+            newBuilding.transform.position = position;
+            newBuilding.transform.rotation = rotation;
+            newBuilding.transform.RotateAround (newBuilding.transform.position, transform.up, 180f);
+            newBuilding.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            // return Instantiate(prefab, position, rotation, transform);
+            return newBuilding;
         }
 
         private Dictionary<Vector3Int, Direction> FindSpacesAroundRoad(List<Vector3Int> roadPositions)
