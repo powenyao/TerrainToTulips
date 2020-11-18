@@ -46,9 +46,10 @@ MonoBehaviour:
   title: 1
   iterations: 4
   angle: 30
-  width: 0.01
-  length: 0.02
+  width: 0.02
+  length: 0.03
   variance: 10
+  cooldownTime: 0.01
   Tree: {fileID: 0}
   treeParent: {fileID: 1941541015360268, guid: 2b3620f8dbec64874be488a1bc2d9a57, type: 3}
   branch: {fileID: 1462239807382192, guid: 59058f90650204b7fa12e7dab0ce902d, type: 3}

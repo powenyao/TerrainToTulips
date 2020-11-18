@@ -13,7 +13,7 @@ public class LSystemsGenerator : MonoBehaviour
     public int iterations = 4;
     public float angle = 30f;
     public float width = 0.02f;
-    public float length = 0.04f;
+    public float length = 0.03f;
     public float variance = 10f;
     public float cooldownTime = 0.01f;
     public GameObject Tree = null;
@@ -59,7 +59,7 @@ public class LSystemsGenerator : MonoBehaviour
         String rulesStr = "[F[-X+F[+FX]][*-X+F[+FX]][/-X+F[+FX]-X]]";
         if (randInt == 0)
         {
-            rulesStr = "[F[*-X+F[+FX]][+F-X]]";
+            rulesStr = "[F[-X+F[+FX]][*-X+F[+FX]][/-X+F[+FX]-X]]";
         }
         else if (randInt == 1)
         {
@@ -67,7 +67,7 @@ public class LSystemsGenerator : MonoBehaviour
         }
         else if (randInt == 2)
         {
-            rulesStr = "[*+FX]X[+FX][/+F-FX]";
+            rulesStr = "[F*+X]X[+FX][/+F-FX]";
         }
         rules = new Dictionary<char, string>
         {
@@ -75,7 +75,7 @@ public class LSystemsGenerator : MonoBehaviour
             { 'F', "FF" }
         };
 
-        //Generate();
+        //Generate(1);
         StartCoroutine(Generate());
     }
 
@@ -89,7 +89,7 @@ public class LSystemsGenerator : MonoBehaviour
                 lengthLastFrame != length)
         {
             ResetFlags();
-            //Generate();
+            //Generate(1);
             StartCoroutine(Generate());
         }
     }
@@ -192,6 +192,104 @@ public class LSystemsGenerator : MonoBehaviour
         Tree.transform.rotation = Quaternion.Euler(0, randRotate, 0);
 
        
+    }
+
+    private void Generate(int h)
+    {
+        Destroy(Tree);
+
+        Tree = Instantiate(treeParent);
+
+        currentString = axiom;
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < iterations; i++)
+        {
+            foreach (char c in currentString)
+            {
+                sb.Append(rules.ContainsKey(c) ? rules[c] : c.ToString());
+            }
+
+            currentString = sb.ToString();
+            sb = new StringBuilder();
+        }
+
+        //Debug.Log(currentString);
+
+
+        for (int i = 0; i < currentString.Length; i++)
+        {
+            switch (currentString[i])
+            {
+                case 'F':
+                    initialPosition = transform.position;
+                    transform.Translate(Vector3.up * 2 * length);
+
+                    /*
+                    float currTime = Time.time;
+                    float prevTime = currTime;
+                    while (currTime < prevTime + cooldownTime)
+                    {
+                        currTime = Time.time;
+                    }
+                    */
+
+                    GameObject fLine = currentString[(i + 1) % currentString.Length] == 'X' || currentString[(i + 3) % currentString.Length] == 'F' && currentString[(i + 4) % currentString.Length] == 'X' ? Instantiate(leaf) : Instantiate(branch);
+                    fLine.transform.SetParent(Tree.transform);
+                    fLine.GetComponent<LineRenderer>().SetPosition(0, initialPosition);
+                    fLine.GetComponent<LineRenderer>().SetPosition(1, transform.position);
+                    fLine.GetComponent<LineRenderer>().startWidth = width;
+                    fLine.GetComponent<LineRenderer>().endWidth = width;
+                    //yield return new WaitForSeconds(0.01f);
+                    //StartCoroutine(WaitFunction(i));
+
+                    break;
+
+                case 'X':
+                    break;
+
+                case '+':
+                    transform.Rotate(Vector3.back * angle * (1 + variance / 100 * randomRotationValues[i % randomRotationValues.Length]));
+                    break;
+
+                case '-':
+                    transform.Rotate(Vector3.forward * angle * (1 + variance / 100 * randomRotationValues[i % randomRotationValues.Length]));
+                    break;
+
+                case '*':
+                    transform.Rotate(Vector3.up * 120 * (1 + variance / 100 * randomRotationValues[i % randomRotationValues.Length]));
+                    break;
+
+                case '/':
+                    transform.Rotate(Vector3.down * 120 * (1 + variance / 100 * randomRotationValues[i % randomRotationValues.Length]));
+                    break;
+
+                case '[':
+                    transformStack.Push(new TransformInfo()
+                    {
+                        position = transform.position,
+                        rotation = transform.rotation
+                    });
+                    break;
+
+                case ']':
+                    TransformInfo ti = transformStack.Pop();
+                    transform.position = ti.position;
+                    transform.rotation = ti.rotation;
+                    break;
+
+                default:
+                    throw new InvalidOperationException("Invalid L-tree operation");
+            }
+        }
+
+
+
+        int randRotate = UnityEngine.Random.Range(0, 359);
+        Tree.transform.rotation = Quaternion.Euler(0, randRotate, 0);
+
+
     }
 
     private void ResetRandomValues()
