@@ -137,6 +137,8 @@ namespace TTT.Scripts.City
         private GameObject SpawnPrefab(GameObject prefab, Vector3Int position, Quaternion rotation)
         {
             return Instantiate(prefab, position, rotation, transform);
+            // Building b = Building_Generator.Generate(settings);
+            // GameObject building = 
         }
 
         private Dictionary<Vector3Int, Direction> FindSpacesAroundRoad(List<Vector3Int> roadPositions)
