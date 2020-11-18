@@ -5,9 +5,6 @@ using UnityEngine;
 public static class Building_Generator
 {
     public static Building Generate(BuildingSettings settings, Vector3Int position){
-        
-        int sizeX = Mathf.CeilToInt(settings.Size.x * Random.Range(0,1));
-        int sizeY = Mathf.CeilToInt(settings.Size.y * Random.Range(0,1));
         return new Building(
             settings.Size.x,
             settings.Size.y, 
