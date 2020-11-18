@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: 1WingHouse
   m_EditorClassIdentifier: 
   maxHeight: 20
-  PerlinOrRandom: 1
+  PerlinOrRandom: 0
