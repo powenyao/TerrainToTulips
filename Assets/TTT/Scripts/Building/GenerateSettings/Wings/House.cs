@@ -10,8 +10,8 @@ public class House : WingsStrategy
     public override Wing[] GenerateWings(BuildingSettings settings, Vector3Int position) {
         int numberOfWings = 1;
         
-        int sizeX = Mathf.RoundToInt(settings.Size.x * Random.Range(0f,1f));
-        int sizeY = Mathf.RoundToInt(settings.Size.y * Random.Range(0f,1f));
+        int sizeX = Mathf.CeilToInt(settings.Size.x * Random.Range(0f,1f));
+        int sizeY = Mathf.CeilToInt(settings.Size.y * Random.Range(0f,1f));
 
         int floor = PerlinOrRandom ?
             Mathf.RoundToInt(Mathf.PerlinNoise(position.x, position.z) * maxHeight) :
