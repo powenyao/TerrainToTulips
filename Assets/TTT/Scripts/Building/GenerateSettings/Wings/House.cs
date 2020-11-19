@@ -9,13 +9,23 @@ public class House : WingsStrategy
     public bool PerlinOrRandom;
     public override Wing[] GenerateWings(BuildingSettings settings, Vector3Int position) {
         int numberOfWings = 1;
-        
-        int sizeX = Mathf.CeilToInt(settings.Size.x * Random.Range(0f,1f));
-        int sizeY = Mathf.CeilToInt(settings.Size.y * Random.Range(0f,1f));
+        int sizeX;
+        int sizeY;
+        int floor;
+        if (PerlinOrRandom) {
+            float u = (float)position.x / 25;
+            float v = (float)position.z / 25;
 
-        int floor = PerlinOrRandom ?
-            Mathf.RoundToInt(Mathf.PerlinNoise(position.x, position.z) * maxHeight) :
-            Random.Range(1, maxHeight + 1);
+            sizeX = Mathf.RoundToInt(settings.Size.x * Mathf.PerlinNoise(u,v));
+            sizeY = Mathf.RoundToInt(settings.Size.y * Mathf.PerlinNoise(v,u));
+            floor = Mathf.RoundToInt(Mathf.PerlinNoise(0, u * 1.33f) * maxHeight);
+        } else {
+            Random.InitState(position.x + position.y);
+
+            sizeX = Mathf.CeilToInt(settings.Size.x * Random.Range(0f,1f));
+            sizeY = Mathf.CeilToInt(settings.Size.y * Random.Range(0f,1f));
+            floor = Random.Range(1, maxHeight + 1);
+        }
         
         List<Wing> stories = new List<Wing>();
         for (int i = 0; i < numberOfWings; i++){
