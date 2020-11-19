@@ -13,6 +13,8 @@ namespace TTT.Scripts.City
         public RoadHelper roadHelper;
         public StructureHelper structureHelper;
         private bool waitingForTheRoad = false;
+
+        public float roadDelay = 0.2f;
         public int Length
         {
             get {
@@ -71,7 +73,8 @@ namespace TTT.Scripts.City
                         currentPosition += direction * length;
                         StartCoroutine(roadHelper.PlaceStreetPositions(tempPostion, Vector3Int.RoundToInt(direction), length));
                         waitingForTheRoad = true;
-                        yield return new WaitForEndOfFrame();
+                        yield return new WaitForSeconds(roadDelay);
+                        //yield return new WaitForEndOfFrame();
                         // positions.Add(currentPosition);
                         break;
                     case SimpleVisualizer.EncodingLetters.turnRight:

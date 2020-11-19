@@ -22,6 +22,7 @@ public class EffectManager : MonoBehaviour
     public float lerpDuration = 1;
     public float waitAfterLerp = 2;
 
+    public float initialDelayBeforeTransforming = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +32,17 @@ public class EffectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //vc.bod
+        if (initialDelayBeforeTransforming > 0)
+        {
+            initialDelayBeforeTransforming -= Time.deltaTime;
+            return;
+        }
+        
         if (timeElapsed < lerpDuration)
         {
             var t = timeElapsed / lerpDuration;
             Shape_EarthCurrent.planetRadius = Mathf.Lerp(Shape_Default.planetRadius, Shape_Earth.planetRadius, t);
-
+            Earth.resolution = (int)Mathf.Lerp(2, 100, t);
 
             for (int i = 0; i < Shape_EarthCurrent.noiseLayers.Length; i++)
             {

@@ -13,6 +13,7 @@ namespace TTT.Scripts.City
         Dictionary<Vector3Int, GameObject> roadDictionary = new Dictionary<Vector3Int, GameObject>();
         HashSet<Vector3Int> fixRoadCandidates = new HashSet<Vector3Int>();
 
+        public float delay = 0.01f;
         public List<Vector3Int> GetRoadPositions()
         {
             return roadDictionary.Keys.ToList();
@@ -38,7 +39,7 @@ namespace TTT.Scripts.City
                 {
                     fixRoadCandidates.Add(position);
                 }
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(delay);
             }
             finishedCoroutine?.Invoke();
         }

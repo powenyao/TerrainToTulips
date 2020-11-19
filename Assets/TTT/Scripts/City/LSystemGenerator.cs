@@ -20,7 +20,7 @@ namespace TTT.Scripts.City
         [Range(0, 1)] public float changeToIgnoreRule = 0.3f;
         public string GenerateSententce(string word = null)
         {
-            Random.seed = seedValue;
+            Random.InitState(seedValue);
             if (word == null)
             {
                 word = rootSentence;
