@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0c5fd86801514438697a1e9236625c, type: 3}
   m_Name: 1WingHouse
   m_EditorClassIdentifier: 
-  maxHeight: 10
+  maxHeight: 20
   PerlinOrRandom: 1

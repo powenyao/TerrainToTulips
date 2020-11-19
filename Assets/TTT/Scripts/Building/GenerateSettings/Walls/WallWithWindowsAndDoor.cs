@@ -14,9 +14,19 @@ public class WallWithWindowsAndDoor : WallStrategy
         // Random.InitState(666);
 
         for (int i = 0; i < walls.Length; i++){
-            if (currentWindowCount < maxWindowCount && Random.Range(0f, 1f) < 0.5) {
-                walls[i] = Wall.Window;
-            } 
+            if (level == 6) {
+                if (i % 3 == 0)//  && Random.Range(0f, 1f) < 0.5) 
+                {
+                    walls[i] = Wall.Window;
+                    currentWindowCount++;
+                } 
+            } else {
+                if (currentWindowCount < maxWindowCount && Random.Range(0f, 1f) < 0.5){
+                    walls[i] = Wall.Window;
+                    currentWindowCount++;
+                }
+            }
+            
         }
         if (level == 0) {
             walls[Random.Range(0, walls.Length)] = Wall.Door;

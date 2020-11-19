@@ -92,7 +92,8 @@ public class EffectManager : MonoBehaviour
         }
         else
         {
-            //Shape_EarthCurrent.planetRadius = Shape_Earth.planetRadius;
+            //Trigger Particle EFfects & Fade Out
+            
             timeElapsed += Time.deltaTime;
             if (transitionToNextScene && timeElapsed > lerpDuration+waitAfterLerp)
             {
