@@ -1306,8 +1306,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1097865939035194, guid: 26f93bca07c4b3b47bbf57a29c6f1cf9, type: 3}
     - target: {fileID: 3374942844825415452, guid: 48ae31942d3948445ab4e8b3a48b804f, type: 3}
+      propertyPath: seed
+      value: 666
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374942844825415452, guid: 48ae31942d3948445ab4e8b3a48b804f, type: 3}
       propertyPath: width
-      value: 0.0005
+      value: 0.0006
       objectReference: {fileID: 0}
     - target: {fileID: 3374942844825415452, guid: 48ae31942d3948445ab4e8b3a48b804f, type: 3}
       propertyPath: branch
@@ -1320,6 +1324,14 @@ PrefabInstance:
     - target: {fileID: 3374942844825415452, guid: 48ae31942d3948445ab4e8b3a48b804f, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374942844825415452, guid: 48ae31942d3948445ab4e8b3a48b804f, type: 3}
+      propertyPath: alwaysShow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374942844825415452, guid: 48ae31942d3948445ab4e8b3a48b804f, type: 3}
+      propertyPath: lerpDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3405735100706681182, guid: 48ae31942d3948445ab4e8b3a48b804f, type: 3}
       propertyPath: m_Name

@@ -16,7 +16,6 @@ public class LSystemsGenerator : MonoBehaviour
     public float width = 0.02f;
     public float length = 0.03f;
     public float variance = 10f;
-    public float cooldownTime = 0.01f;
     public GameObject Tree = null;
 
     [SerializeField]
@@ -47,8 +46,10 @@ public class LSystemsGenerator : MonoBehaviour
     private UnityEngine.Random random;
     public int seed;
 
+    public bool alwaysShow = true;
     private void Start()
     {
+        listOfGO = new List<GameObject>();
         random = new UnityEngine.Random();
         UnityEngine.Random.InitState(seed);
 
@@ -126,45 +127,56 @@ public class LSystemsGenerator : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.A))
         {
-            print("Start Time: " + Time.time);
-            print("A");
+            //print("Start Time: " + Time.time);
+            //print("A");
             StartCoroutine(ShowTree(true));
         }
 
         if (Input.GetKeyUp(KeyCode.D))
         {
-            print("Start Time: " + Time.time);
-            print("D");
+            //print("Start Time: " + Time.time);
+            //print("D");
             StartCoroutine(ShowTree(false));
         }
     }
 
-    
+    private bool addedTime = false;
     private float timeElapsed = 0;
     public float lerpDuration = 3f;
     private int generateTimes = 0;
     IEnumerator ShowTree(bool bShow)
     {
+        if (alwaysShow)
+        {
+            yield return 0;
+        }
         float t = 0;
         var goalIndex = (int)Mathf.Lerp(0, listOfGO.Count, t);
         
         for (var i = 0; i < listOfGO.Count; i++)
         {
-            timeElapsed += Time.deltaTime;
+            if (!addedTime)
+            {
+                timeElapsed += Time.deltaTime;
+                addedTime = true;
+            }
+            
             listOfGO[i].SetActive(bShow);
             
             if (i > goalIndex)
             {
-                t = timeElapsed / lerpDuration;
                 
+                t = timeElapsed / lerpDuration;
                 goalIndex = (int)Mathf.Lerp(0, listOfGO.Count, t);
-                print("i " + i + " vs " + goalIndex);
+                
+                addedTime = false;
+//                print("i " + i + " vs " + goalIndex);
                 yield return new WaitForSeconds(0.01f);                
             }
         }
 
         timeElapsed = 0;
-        print("Finish Time: " + Time.time);
+        //print("Finish Time: " + Time.time);
     }
 
 
@@ -210,14 +222,6 @@ public class LSystemsGenerator : MonoBehaviour
                     initialPosition = transform.position;
                     transform.Translate(Vector3.up * 2 * length);
 
-                    /*
-                    float currTime = Time.time;
-                    float prevTime = currTime;
-                    while (currTime < prevTime + cooldownTime)
-                    {
-                        currTime = Time.time;
-                    }
-                    */
 
                     GameObject fLine =
                         currentString[(i + 1) % currentString.Length] == 'X' ||
